@@ -1,0 +1,7 @@
+Player Name  : help
+Player Health: 16
+Player Stamina: 8
+Player Damage: 7
+Player Gold: 0
+Player xCo: 1
+Player yCo: 1

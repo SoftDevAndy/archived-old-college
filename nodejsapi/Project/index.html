@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/sb-admin.css" rel="stylesheet">
+    <link href="css/plugins/morris.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Custom CSS is Here -->
+    <link href="css/custom.css" rel="stylesheet">
+    <!-- Custom CSS is Here -->
+
+    <title>Semantic Web - Galway Geolocation API</title>
+</head>
+
+<body>
+    <div id="wrapper">
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html">Semantic Web Project - Galway Geolocation Information</a>
+        </div>
+
+
+       
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav side-nav">
+                <li class="active">
+                    <a href="index.html"><i></i>API and Help</a>
+                    <a href="/database"><i></i>Raw Database ID's</a>
+                    <a href="/attractions"><i></i> File Data - Galway Attractions</a>
+                    <a href="/parks"><i></i> File Data - Galway Parks</a>
+                    <a href="/scenic"><i></i> File Data - Scenic Routes</a>
+                    <a href="/structures"><i></i> File Data - Galway Protected Structures</a>
+                    <a href="/recreation"><i></i> File Data - Galway Recreation Strategy</a>
+                </li>                    
+            </ul>
+        </div>
+    </nav>
+
+    <div id="page-wrapper">
+
+        <div style="background-color:white">
+        <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>About</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>The purpose of using information from these five data sets was to show scenic routes, attractions and parks from around Galway. This kind of information could be used in the tourism sector to generate walking tours, bus tours and other excursions around Galway county.</td>
+              </tr>
+            </tbody>
+          </table> 
+        </div>  
+
+        <div style="background-color:white">
+        <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Instructions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>All data is returned in <b>raw geojson format as text</b>. To query, click on any of the Url links to copy the data or make a request to the given urls. Below is a key showing all of the available functions with the api.</td>
+              </tr>
+            </tbody>
+          </table> 
+        </div>  
+
+        <div style="background-color:white">
+        <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Request Type</th>
+                <th>Description</th>
+                <th>Example Url</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td id="request_get">GET</td>
+                <td id="description">Get the original Galway Attractions Data from FILE</td>
+                <td><a href="http://127.0.0.1:8000/GET_originaldata_galway_attractions">http://127.0.0.1:8000/GET_originaldata_galway_attractions</a></td>
+              </tr>
+              <tr>
+                <td id="request_get">GET</td>
+                <td id="description">Get the original Galway parks Data from FILE</td>
+                <td><a href="http://127.0.0.1:8000/GET_originaldata_galway_parks">http://127.0.0.1:8000/GET_originaldata_galway_parks</a></td>
+              </tr>
+              <tr>
+                <td id="request_get">GET</td>
+                <td id="description">Get the original Galway scenic Data from FILE</td>
+                <td><a href="http://127.0.0.1:8000/GET_originaldata_galway_scenic">http://127.0.0.1:8000/GET_originaldata_galway_scenic</a></td>
+              </tr>
+              <td id="request_get">GET</td>
+                <td id="description">Get the original Galway structures Data from FILE</td>
+                <td><a href="http://127.0.0.1:8000/GET_originaldata_galway_structures">http://127.0.0.1:8000/GET_originaldata_galway_structures</a></td>
+              </tr>
+              <td id="request_get">GET</td>
+                <td id="description">Get the original Galway recreation strategy Data from FILE</td>
+                <td><a href="http://127.0.0.1:8000/GET_originaldata_galway_recreationstrat">http://127.0.0.1:8000/GET_originaldata_galway_recreationstrat</a></td>
+              </tr>
+              <tr>
+                <td id="request_get">GET</td>
+                <td id="description">All geojson data entries from database</td>
+                <td><a href="http://127.0.0.1:8000/GET_allData">http://127.0.0.1:8000/GET_allData</a></td>
+              </tr>
+              <tr>
+                <td id="request_delete">DELETE</td>
+                <td id="description"><div id="warning">[Warning]</div> Clears the entire database. You will have to restart the server again to re-populate the pouchdb</td>
+                <td><a href="http://127.0.0.1:8000/DELETE_allData">http://127.0.0.1:8000/DELETE_allData</a></td>
+              </tr>
+              <tr>
+                <td id="request_get">GET</td>
+                <td id="description">All a count of all entries currently in the database</td>
+                <td><a href="http://127.0.0.1:8000/GET_COUNT">http://127.0.0.1:8000/GET_COUNT</a></td>
+              </tr>              
+              <tr>
+                <td id="request_post">POST</td>
+                <td id="description">Add an entry to the database</td>
+                <td><a href="http://127.0.0.1:8000/POST_addEntry/myname/category/mystreet/5000/900">http://127.0.0.1:8000/POST_addEntry/myname/category/mystreet/5000/900</a></td>
+              </tr>
+              <tr>
+                <td id="request_delete">DELETE</td>
+                <td id="description">Deletes an entry given the id <div id="warning">[Warning]</div> Check the admin console for an example ID or choose one from the database id page</td>
+                <td><a href="http://127.0.0.1:8000/DELETE_deleteEntry/0">http://127.0.0.1:8000/DELETE_deleteEntry/0</a></td>
+              </tr>
+              <tr>
+                <td id="request_get">GET</td>
+                <td id="description">All the FIRST entry in the database</td>
+                <td><a href="http://127.0.0.1:8000/GET_FIRST">http://127.0.0.1:8000/GET_FIRST</a></td>
+              </tr>
+              <tr>
+                <td id="request_get">GET</td>
+                <td id="description">All LAST entry in the database</td>
+                <td><a href="http://127.0.0.1:8000/GET_LAST">http://127.0.0.1:8000/GET_LAST</a></td>
+              </tr>              
+              <tr>
+                <td id="request_get">GET</td>
+                <td id="description">All FIRST available 10 entries in the database</td>
+                <td><a href="http://127.0.0.1:8000/GET_HEAD">http://127.0.0.1:8000/GET_HEAD</a></td>
+              </tr>
+              <tr>
+                <td id="request_get">GET</td>
+                <td id="description">All LAST available 10 entries in the database</td>
+                <td><a href="http://127.0.0.1:8000/GET_TAIL">http://127.0.0.1:8000/GET_TAIL</a></td>
+              </tr>
+              <tr>
+                <td id="request_patch">PATCH</td>
+                <td id="description">Change a record in the database by a given id</td>
+                <td><a href="http://127.0.0.1:8000/PATCH_changeEntry/012345/FFFF-FFFF-FFFF-FFFF/myname/category/mystreet/5000/900">http://127.0.0.1:8000/PATCH_changeEntry/012345/FFFF-FFFF-FFFF-FFFF/myname/category/mystreet/5000/900</a></td>
+              </tr>
+
+            </tbody>
+          </table>       
+
+        </div>
+    </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+</html>
